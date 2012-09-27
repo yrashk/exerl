@@ -16,7 +16,7 @@ can be used to compile Erlang programs like this:
 ```erlang
 -compile({parse_transform, some_module_transform}).
 
-# ...
+%% ...
 
 myfun() ->
   some_module:somefun().
