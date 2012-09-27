@@ -6,7 +6,7 @@ Elixir macro to alias Elixir module names in Erlang:
 defmodule :some_module_transform do
   use ExErl.ParseTransform
 
-  transform SomeModule, to: :some_module
+  transform :some_module, to: SomeModule
 end
 ```
 

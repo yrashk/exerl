@@ -7,7 +7,7 @@ defmodule ExErl.ParseTransform do
 
       def parse_transform(forms, opts) do
         forms = :elixir_transform.parse_transform(forms, opts)
-        transformations = Keyword.from_enum(lc {:transformation, [{elixir, erlang}]} inlist __MODULE__.__info__(:attributes), do: {erlang, elixir})
+        transformations = Keyword.from_enum(lc {:transformation, [v]} inlist __MODULE__.__info__(:attributes), do: v)
         do_transform(forms, transformations)
       end
 
@@ -31,9 +31,9 @@ defmodule ExErl.ParseTransform do
     end
   end
 
-  defmacro transform(elixir, [to: erlang]) do
+  defmacro transform(erlang, [to: elixir]) do
     quote do
-      @transformation {unquote(elixir), unquote(erlang)}
+      @transformation {unquote(erlang), unquote(elixir)}
     end
   end
 

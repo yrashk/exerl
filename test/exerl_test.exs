@@ -7,7 +7,7 @@ end
 defmodule :some_module_transform do
   use ExErl.ParseTransform
 
-  transform SomeModule, to: :some_module
+  transform :some_module, to: SomeModule
 end
 
 defmodule Test do
